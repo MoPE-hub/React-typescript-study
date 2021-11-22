@@ -11,6 +11,10 @@ const App = () => {
     name: 'ok'
   })
 
+  const [ target, setTarget ] = useState({
+    data: 'OOO'
+  })
+
   const handleOpen = () => {
     setState({
       ...state,
@@ -25,15 +29,25 @@ const App = () => {
     })
   }
 
+  const handleChange = () => {
+    setTarget({
+      ...target,
+      data: 'KKK'
+    })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
         <button onClick={() => handleOpen()}>모달</button>
-        <Modal value={state}/>
+
+        <Modal value={state} data={target}/>
 
         <button onClick={() => handleAdd()}>+</button>
+
+        <button onClick={() => handleChange()}>바꿔</button>
       </header>
     </div>
   );
